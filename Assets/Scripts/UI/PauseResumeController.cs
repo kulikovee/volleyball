@@ -16,7 +16,7 @@ public class PauseResumeController : MonoBehaviour
 
     void UpdateSelection(int option)
     {
-        text.text = option == optionId ? "<b>Resume</b>" : "Resume";
+        text.SetText(option == optionId ? "<b>Resume</b>" : "Resume");
         text.fontStyle = option == optionId ? FontStyles.Underline : FontStyles.Normal;
     }
 }

@@ -16,7 +16,7 @@ public class PauseExitController : MonoBehaviour
 
     void UpdateSelection(int option)
     {
-        text.text = option == optionId ? "<b>Exit Game</b>" : "Exit Game";
+        text.SetText(option == optionId ? "<b>Exit Game</b>" : "Exit Game");
         text.fontStyle = option == optionId ? FontStyles.Underline : FontStyles.Normal;
     }
 }
