@@ -3074,7 +3074,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameOverSound: {fileID: 575479084}
-  winScore: 2
 --- !u!1001 &975740607
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4949,7 +4948,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 41d3d90e9092c0c42947e95b683e695f, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
