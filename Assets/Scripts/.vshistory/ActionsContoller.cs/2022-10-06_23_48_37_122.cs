@@ -1,0 +1,46 @@
+﻿using UnityEngine;
+
+public class ActionsContoller : MonoBehaviour
+{
+    public delegate void VoidDelegate();
+    public delegate void ScoreDelegate(bool firstTeamIncrement, bool secondTeamIncrement);
+    public static event VoidDelegate OnNextRound;
+    public static event VoidDelegate OnResetScene;
+    public static event VoidDelegate OnShowStartupMenu;
+    public static event VoidDelegate onResetPlayersText;
+    public static event VoidDelegate onJoinedPlayersText;
+    public static event ScoreDelegate onUpdateScore;
+
+    public static ActionsContoller GetActions()
+    {
+        return GameObject.Find("State").GetComponent<ActionsContoller>();
+    }
+
+    public void NextRound()
+    {
+        if (OnNextRound != null) OnNextRound();
+    }
+    public void ResetScene()
+    {
+        if (OnResetScene != null) OnResetScene();
+    }
+    public void showStartupMenu()
+    {
+        if (OnShowStartupMenu != null) OnShowStartupMenu();
+    }
+
+    public void ResetPlayersText()
+    {
+        if (onResetPlayersText != null) onResetPlayersText();
+    }
+
+    public void JoinedPlayersText()
+    {
+        if (onJoinedPlayersText != null) onJoinedPlayersText();
+    }
+
+    public void UpdateScore(bool firstTeamIncrement, bool secondTeamIncrement)
+    {
+        if (onUpdateScore != null) onUpdateScore(firstTeamIncrement, secondTeamIncrement);
+    }
+}
