@@ -38,7 +38,7 @@ public class InputAIController : MonoBehaviour
 
         if (
             transform.position.x > -1.25f && isLeftSide
-            || transform.position.x < 1.25f && isLeftSide
+            || transform.position.x < 1.25f && !isLeftSide
         )
         {
             extraTargetX = 3f;

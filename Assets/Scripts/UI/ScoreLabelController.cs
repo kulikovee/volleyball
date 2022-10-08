@@ -5,8 +5,8 @@ using UnityEngine;
 public class ScoreLabelController : MonoBehaviour
 {
     public AudioSource gameOverSound;
-    public int winScore = 10;
 
+    private int winScore = 10;
     private int teamScore1 = 0;
     private int teamScore2 = 0;
 
