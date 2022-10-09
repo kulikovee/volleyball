@@ -10,7 +10,6 @@ public class ActionsContoller : MonoBehaviour
 
     public static event VoidDelegate OnRoundEnd;
     public static event VoidDelegate OnRoundStart;
-    public static event VoidDelegate OnRoundRestart;
     public static event VoidDelegate OnShowStartupMenu;
     public static event VoidDelegate OnFirstShowStartupMenu;
     public static event VoidDelegate OnResetPlayersText;

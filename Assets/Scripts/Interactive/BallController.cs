@@ -13,7 +13,7 @@ public class BallController : MonoBehaviour
     private ActionsContoller actions;
 
     private bool isTouchedGround = false;
-    private Rigidbody rigidbody;
+    private Rigidbody ballRigidbody;
     private float lastSoundAt = 0;
     private readonly Vector3 defaultPosition = new Vector3(0, 5, 0);
 
@@ -23,12 +23,12 @@ public class BallController : MonoBehaviour
         ActionsContoller.OnRoundStart += UnfreezeAndResetGround;
 
         actions = ActionsContoller.GetActions();
-        rigidbody = GetComponent<Rigidbody>();
+        ballRigidbody = GetComponent<Rigidbody>();
     }
 
     void Update()
     {
-        if (rigidbody.isKinematic)
+        if (ballRigidbody.isKinematic)
         {
             return;
         }
@@ -81,16 +81,16 @@ public class BallController : MonoBehaviour
 
     public void FreezeAndResetPosition()
     {
-        rigidbody.transform.position = defaultPosition;
-        rigidbody.position = defaultPosition;
-        rigidbody.velocity = Vector3.zero;
-        rigidbody.angularVelocity = Vector3.zero;
-        rigidbody.isKinematic = true;
+        ballRigidbody.transform.position = defaultPosition;
+        ballRigidbody.position = defaultPosition;
+        ballRigidbody.velocity = Vector3.zero;
+        ballRigidbody.angularVelocity = Vector3.zero;
+        ballRigidbody.isKinematic = true;
     }
 
     public void UnfreezeAndResetGround()
     {
-        rigidbody.isKinematic = false;
+        ballRigidbody.isKinematic = false;
         isTouchedGround = false;
         ground1.material.color = new Color32(255, 160, 129, 1);
         ground2.material.color = new Color32(107, 255, 130, 1);
