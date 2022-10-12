@@ -14,8 +14,10 @@ public class BallController : MonoBehaviour
 
     private bool isTouchedGround = false;
     private Rigidbody ballRigidbody;
-    private float lastSoundAt = 0;
+    private float lastSoundAt = 0f;
     private readonly Vector3 defaultPosition = new Vector3(0, 5, 0);
+    private const float highPitchAdditionalVelocity = 2f;
+    private const float highPitchThreshold = 6f;
 
     private void Start()
     {
@@ -58,6 +60,17 @@ public class BallController : MonoBehaviour
         }
     }
 
+    void OnCollisionExit(Collision collision)
+    {
+        if (
+            ballRigidbody.velocity.y + highPitchAdditionalVelocity < highPitchThreshold
+            && collision.transform.GetComponent<PlayerController>() != null
+        )
+        {
+            ballRigidbody.velocity += new Vector3(0, highPitchAdditionalVelocity, 0);
+        }
+    }
+
     public void RoundRestart()
     {
         actions.RoundRestart();
@@ -75,7 +88,7 @@ public class BallController : MonoBehaviour
         }
         else if (isSecondTeamScore)
         {
-            ground2.material.color = new Color32(0, 255, 0, 1);
+            ground2.material.color = new Color32(255, 0, 0, 1);
         }
     }
 

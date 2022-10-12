@@ -9,7 +9,6 @@ public class KinematicCharacterAdapter : MonoBehaviour, ICharacterController
 
     private void Awake()
     {
-        // TransitionToState(CharacterState.Default);
         motor = GetComponent<KinematicCharacterMotor>();
         motor.CharacterController = this;
     }
@@ -19,7 +18,7 @@ public class KinematicCharacterAdapter : MonoBehaviour, ICharacterController
         device = GetComponent<DeviceController>();
     }
 
-    public bool IsColliderValidForCollisions(Collider coll)
+    public bool IsColliderValidForCollisions(Collider collider)
     {
         return true;
     }
@@ -51,7 +50,18 @@ public class KinematicCharacterAdapter : MonoBehaviour, ICharacterController
     {
         motor.SetPosition(position);
     }
-    
+
+    public void UpdateRotation(ref Quaternion currentRotation, float deltaTime)
+    {
+        var axis = device.GetUpdatedAxis();
+        var rotateAt = new Vector3(axis.GetX(), 0, axis.GetY());
+
+        if (rotateAt.magnitude > 0.15f)
+        {
+            currentRotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(rotateAt), deltaTime * 10f);
+        }
+    }
+
     public void AfterCharacterUpdate(float deltaTime) { }
 
     public void BeforeCharacterUpdate(float deltaTime) { }
@@ -60,11 +70,10 @@ public class KinematicCharacterAdapter : MonoBehaviour, ICharacterController
 
     public void OnGroundHit(Collider hitCollider, Vector3 hitNormal, Vector3 hitPoint, ref HitStabilityReport hitStabilityReport) { }
 
-    public void OnMovementHit(Collider hitCollider, Vector3 hitNormal, Vector3 hitPoint, ref HitStabilityReport hitStabilityReport) { }
+    public void OnMovementHit(Collider hitCollider, Vector3 hitNormal, Vector3 hitPoint, ref HitStabilityReport hitStabilityReport) {
+    }
 
     public void PostGroundingUpdate(float deltaTime) { }
 
     public void ProcessHitStabilityReport(Collider hitCollider, Vector3 hitNormal, Vector3 hitPoint, Vector3 atCharacterPosition, Quaternion atCharacterRotation, ref HitStabilityReport hitStabilityReport) { }
-
-    public void UpdateRotation(ref Quaternion currentRotation, float deltaTime) { }
 }

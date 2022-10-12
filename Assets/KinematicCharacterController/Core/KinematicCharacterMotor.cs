@@ -162,6 +162,7 @@ namespace KinematicCharacterController
         /// </summary>
         [ReadOnly]
         public CapsuleCollider Capsule;
+        public bool isDebug = false;
 
         [Header("Capsule Settings")]
         /// <summary>
@@ -785,10 +786,13 @@ namespace KinematicCharacterController
 #endif
 
             _rigidbodiesPushedThisMove.Clear();
-            Debug.Log("CharacterController: " + (CharacterController != null));
+
             // Before update
             CharacterController.BeforeCharacterUpdate(deltaTime);
-
+            if (isDebug)
+            {
+                isDebug = true;
+            }
             _transientPosition = _transform.position;
             TransientRotation = _transform.rotation;
             _initialSimulationPosition = _transientPosition;
@@ -860,8 +864,11 @@ namespace KinematicCharacterController
                                     resolutionDirection = GetObstructionNormal(resolutionDirection, mockReport.IsStable);
 
                                     // Solve overlap
+                                    // TODO: Makes Players shaky
+                                    // Vector3 resolutionMovement = resolutionDirection * (resolutionDistance + CollisionOffset);
+                                    // _transientPosition += resolutionMovement;
                                     Vector3 resolutionMovement = resolutionDirection * (resolutionDistance + CollisionOffset);
-                                    _transientPosition += resolutionMovement;
+                                    _transientPosition += resolutionMovement * 0.1f;
 
                                     // Remember overlaps
                                     if (_overlapsCount < _overlaps.Length)
@@ -1099,8 +1106,11 @@ namespace KinematicCharacterController
                                     resolutionDirection = GetObstructionNormal(resolutionDirection, mockReport.IsStable);
 
                                     // Solve overlap
+                                    // TODO: Makes Players shaky
+                                    // Vector3 resolutionMovement = resolutionDirection * (resolutionDistance + CollisionOffset);
+                                    // _transientPosition += resolutionMovement;
                                     Vector3 resolutionMovement = resolutionDirection * (resolutionDistance + CollisionOffset);
-                                    _transientPosition += resolutionMovement;
+                                    _transientPosition += resolutionMovement * 0.1f;
 
                                     // If interactiveRigidbody, register as rigidbody hit for velocity
                                     if (InteractiveRigidbodyHandling)
@@ -1841,6 +1851,10 @@ namespace KinematicCharacterController
             {
                 RigidbodyProjectionHit bodyHit = _internalRigidbodyProjectionHits[i];
 
+                if (isDebug && bodyHit.Rigidbody)
+                {
+                    isDebug = true;
+                }
                 if (bodyHit.Rigidbody && !_rigidbodiesPushedThisMove.Contains(bodyHit.Rigidbody))
                 {
                     if (_internalRigidbodyProjectionHits[i].Rigidbody != _attachedRigidbody)

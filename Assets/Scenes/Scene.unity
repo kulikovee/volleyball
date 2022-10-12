@@ -2332,6 +2332,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Capsule: {fileID: 759565396}
+  isDebug: 0
   CapsuleRadius: 0.5
   CapsuleHeight: 1.8
   CapsuleYOffset: 0.9
@@ -2353,7 +2354,7 @@ MonoBehaviour:
   InteractiveRigidbodyHandling: 1
   RigidbodyInteractionType: 0
   SimulatedCharacterMass: 1
-  PreserveAttachedRigidbodyMomentum: 1
+  PreserveAttachedRigidbodyMomentum: 0
   HasPlanarConstraint: 0
   PlanarConstraintAxis: {x: 0, y: 0, z: 1}
   MaxMovementIterations: 5
@@ -2375,7 +2376,7 @@ CapsuleCollider:
   m_Height: 1.8
   m_Direction: 1
   m_Center: {x: 0, y: 0.9, z: 0}
---- !u!114 &759565397
+--- !u!114 &759565399
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2921,11 +2922,11 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 954558384}
   serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_Mass: 3
+  m_Drag: 0.1
+  m_AngularDrag: 0.8
   m_UseGravity: 1
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
@@ -3783,6 +3784,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Capsule: {fileID: 1245971448}
+  isDebug: 1
   CapsuleRadius: 0.5
   CapsuleHeight: 1.8
   CapsuleYOffset: 0.9
@@ -3804,7 +3806,7 @@ MonoBehaviour:
   InteractiveRigidbodyHandling: 1
   RigidbodyInteractionType: 0
   SimulatedCharacterMass: 1
-  PreserveAttachedRigidbodyMomentum: 1
+  PreserveAttachedRigidbodyMomentum: 0
   HasPlanarConstraint: 0
   PlanarConstraintAxis: {x: 0, y: 0, z: 1}
   MaxMovementIterations: 5
@@ -3826,7 +3828,7 @@ CapsuleCollider:
   m_Height: 1.8
   m_Direction: 1
   m_Center: {x: 0, y: 0.9, z: 0}
---- !u!114 &1245971449
+--- !u!114 &1245971452
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4802,6 +4804,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Capsule: {fileID: 1343619586}
+  isDebug: 0
   CapsuleRadius: 0.5
   CapsuleHeight: 1.8
   CapsuleYOffset: 0.9
@@ -4823,7 +4826,7 @@ MonoBehaviour:
   InteractiveRigidbodyHandling: 1
   RigidbodyInteractionType: 0
   SimulatedCharacterMass: 1
-  PreserveAttachedRigidbodyMomentum: 1
+  PreserveAttachedRigidbodyMomentum: 0
   HasPlanarConstraint: 0
   PlanarConstraintAxis: {x: 0, y: 0, z: 1}
   MaxMovementIterations: 5
@@ -4845,7 +4848,7 @@ CapsuleCollider:
   m_Height: 1.8
   m_Direction: 1
   m_Center: {x: 0, y: 0.9, z: 0}
---- !u!114 &1343619587
+--- !u!114 &1343619589
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5768,6 +5771,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Capsule: {fileID: 1715441778}
+  isDebug: 0
   CapsuleRadius: 0.5
   CapsuleHeight: 1.8
   CapsuleYOffset: 0.9
@@ -5789,7 +5793,7 @@ MonoBehaviour:
   InteractiveRigidbodyHandling: 1
   RigidbodyInteractionType: 0
   SimulatedCharacterMass: 1
-  PreserveAttachedRigidbodyMomentum: 1
+  PreserveAttachedRigidbodyMomentum: 0
   HasPlanarConstraint: 0
   PlanarConstraintAxis: {x: 0, y: 0, z: 1}
   MaxMovementIterations: 5
@@ -5811,7 +5815,7 @@ CapsuleCollider:
   m_Height: 1.8
   m_Direction: 1
   m_Center: {x: 0, y: 0.9, z: 0}
---- !u!114 &1715441779
+--- !u!114 &1715441782
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

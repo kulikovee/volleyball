@@ -53,8 +53,8 @@ public class InputAIController : MonoBehaviour
             extraTargetZ -= 4f;
         }
 
-        float randomDeltaX = Random.Range(0.2f, 1f) + extraTargetX;
-        float randomDeltaZ = Random.Range(0, transform.position.z) + extraTargetZ;
+        float randomDeltaX = Random.Range(0.2f, 0.7f) + extraTargetX;
+        float randomDeltaZ = Random.Range(0, 2f) + extraTargetZ;
 
         Vector3 aiTargetPosition =
             target.position
